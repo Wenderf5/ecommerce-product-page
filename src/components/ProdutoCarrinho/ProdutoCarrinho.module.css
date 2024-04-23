@@ -1,0 +1,58 @@
+
+
+
+.container{
+    width: 95%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.containerimg{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.containerinfocart{
+    width: 63%;
+    height: 100%;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.btnexcluircart{
+    height: 100%;
+    width: 12%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btndelete{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.titulo{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    font-size: 0.8rem;
+}
+
+.preco{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: start;
+    font-size: 0.8rem;
+}

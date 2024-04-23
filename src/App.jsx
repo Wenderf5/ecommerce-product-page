@@ -1,19 +1,19 @@
 //styles
-import styleApp from './style/App.module.css';
+import styleApp from './App.module.css';
 
 //components
 import NavBar from './components/NavBar/NavBar';
 
 //imagens
-import imgproduto1 from './img/image-product-1.jpg';
-import imgproduto2 from './img/image-product-2.jpg';
-import imgproduto3 from './img/image-product-3.jpg';
-import imgproduto4 from './img/image-product-4.jpg';
-import imgprodutothumbnail1 from './img/image-product-1-thumbnail.jpg';
-import imgprodutothumbnail2 from './img/image-product-2-thumbnail.jpg';
-import imgprodutothumbnail3 from './img/image-product-3-thumbnail.jpg';
-import imgprodutothumbnail4 from './img/image-product-4-thumbnail.jpg';
-import btnmenuclose from './img/icon-close.svg';
+import imgproduto1 from './assets/img/image-product-1.jpg';
+import imgproduto2 from './assets/img/image-product-2.jpg';
+import imgproduto3 from './assets/img/image-product-3.jpg';
+import imgproduto4 from './assets/img/image-product-4.jpg';
+import imgprodutothumbnail1 from './assets/img/image-product-1-thumbnail.jpg';
+import imgprodutothumbnail2 from './assets/img/image-product-2-thumbnail.jpg';
+import imgprodutothumbnail3 from './assets/img/image-product-3-thumbnail.jpg';
+import imgprodutothumbnail4 from './assets/img/image-product-4-thumbnail.jpg';
+import btnmenuclose from './assets/img/icon-close.svg';
 
 //Hooks
 import { useState } from 'react';
@@ -22,6 +22,7 @@ function App() {
 
   //States
   const [Menu, setMenu] = useState(false);
+  const [Quantidade, setQuantidade] = useState(1);
 
   return (
     <div>
@@ -63,9 +64,9 @@ function App() {
               </div>
               <div className={styleApp.containeraddcarrinho}>
                 <div className={styleApp.containerquantidade}>
-                  <button style={{ color: "#ff7d1b", border: "none", background: "none", fontSize: "2rem", cursor: "pointer" }}>-</button>
-                  <span style={{ color: "black" }}>10</span>
-                  <button style={{ color: "#ff7d1b", border: "none", background: "none", fontSize: "1.3rem", cursor: "pointer" }}>+</button>
+                  <button onClick={()=> setQuantidade(Quantidade > 1 ? Quantidade -1 : 1)} style={{ color: "#ff7d1b", border: "none", background: "none", fontSize: "2rem", cursor: "pointer" }}>-</button>
+                  <span style={{ color: "black" }}>{Quantidade}</span>
+                  <button onClick={()=> setQuantidade(Quantidade + 1)} style={{ color: "#ff7d1b", border: "none", background: "none", fontSize: "1.3rem", cursor: "pointer" }}>+</button>
                 </div>
                 <button className={styleApp.btnaddtocart}>Add to cart</button>
               </div>
