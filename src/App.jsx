@@ -1,5 +1,5 @@
 //styles
-import styleApp from './App.module.css';
+import style from './App.module.css';
 
 //components
 import NavBar from './components/NavBar/NavBar';
@@ -18,63 +18,79 @@ import btnmenuclose from './assets/img/icon-close.svg';
 //Hooks
 import { useState } from 'react';
 
+//services
+import produtosloja from './services/produtosloja';
+import classproduto from './services/addcarrinho';
+import carrinho from './services/carrinho';
+
 function App() {
 
   //States
   const [Menu, setMenu] = useState(false);
   const [Quantidade, setQuantidade] = useState(1);
 
+  const produto12 = new classproduto(produtosloja[0].id, produtosloja[0].titulo, produtosloja[0].desc, produtosloja[0].preco, produtosloja[0].desconto, Quantidade);
+
+  function addcarrinho() {
+    const produtoExistente = carrinho.find(item => item.id === produtosloja[0].id);
+    if (produtoExistente) {
+      produtoExistente.quantidade += Quantidade
+    } else {
+      carrinho.push(produto12)
+    }
+  }
+
   return (
     <div>
-      <div className={Menu ? styleApp.menu1 : styleApp.menu0}>
-        <button className={styleApp.btnmenunavbarclose} onClick={()=> setMenu(false)}><img src={btnmenuclose} alt="" /></button>
-        <button className={styleApp.btnmenunavbar}>Collections</button>
-        <button className={styleApp.btnmenunavbar}>Men</button>
-        <button className={styleApp.btnmenunavbar}>Women</button>
-        <button className={styleApp.btnmenunavbar}>About</button>
-        <button className={styleApp.btnmenunavbar}>Contact</button>
+      <div className={Menu ? style.menu1 : style.menu0}>
+        <button className={style.btnmenunavbarclose} onClick={() => setMenu(false)}><img src={btnmenuclose} alt="" /></button>
+        <button className={style.btnmenunavbar}>Collections</button>
+        <button className={style.btnmenunavbar}>Men</button>
+        <button className={style.btnmenunavbar}>Women</button>
+        <button className={style.btnmenunavbar}>About</button>
+        <button className={style.btnmenunavbar}>Contact</button>
       </div>
-      <div className={styleApp.navbar}><NavBar setMenu={setMenu}/></div>
-      <div className={styleApp.container}>
-        <div className={styleApp.containercenter}>
-          <div className={styleApp.containerprincipal}>
-            <div className={styleApp.containerfotosproduto}>
-              <div className={styleApp.containerfotos}>
-                <div className={styleApp.containerfoto}><img className={styleApp.imgprincipal} src={imgproduto1} alt="" /></div>
-                <div className={styleApp.containerfotos1}>
-                  <div className={styleApp.previews}><img style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "2px", boxShadow: " 1px 1px 10px rgb(172, 172, 172)" }} src={imgprodutothumbnail1} alt="" /></div>
-                  <div className={styleApp.previews}><img style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "2px", boxShadow: " 1px 1px 10px rgb(172, 172, 172)" }} src={imgprodutothumbnail2} alt="" /></div>
-                  <div className={styleApp.previews}><img style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "2px", boxShadow: " 1px 1px 10px rgb(172, 172, 172)" }} src={imgprodutothumbnail3} alt="" /></div>
-                  <div className={styleApp.previews}><img style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "2px", boxShadow: " 1px 1px 10px rgb(172, 172, 172)" }} src={imgprodutothumbnail4} alt="" /></div>
+      <div className={style.navbar}><NavBar setMenu={setMenu} /></div>
+      <div className={style.container}>
+        <div className={style.containercenter}>
+          <div className={style.containerprincipal}>
+            <div className={style.containerfotosproduto}>
+              <div className={style.containerfotos}>
+                <div className={style.containerfoto}><img className={style.imgprincipal} src={imgproduto1} alt="" /></div>
+                <div className={style.containerfotos1}>
+                  <div className={style.previews}><img style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "2px", boxShadow: " 1px 1px 10px rgb(172, 172, 172)" }} src={imgprodutothumbnail1} alt="" /></div>
+                  <div className={style.previews}><img style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "2px", boxShadow: " 1px 1px 10px rgb(172, 172, 172)" }} src={imgprodutothumbnail2} alt="" /></div>
+                  <div className={style.previews}><img style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "2px", boxShadow: " 1px 1px 10px rgb(172, 172, 172)" }} src={imgprodutothumbnail3} alt="" /></div>
+                  <div className={style.previews}><img style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "2px", boxShadow: " 1px 1px 10px rgb(172, 172, 172)" }} src={imgprodutothumbnail4} alt="" /></div>
                 </div>
               </div>
             </div>
-            <div className={styleApp.containerinfoproduto}>
-              <div className={styleApp.txt1}><span style={{ fontSize: "1.3rem", color: "#ff7d1b" }}>Sneaker Company</span></div>
-              <div className={styleApp.ttl1}><span>Fall Limited Edition Sneakers</span></div>
-              <div className={styleApp.txt2}><span>Fall Limited Edition Sneakers These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.</span></div>
-              <div className={styleApp.containerpreco1}>
-                <div className={styleApp.containerpreco}>
+            <div className={style.containerinfoproduto}>
+              <div className={style.txt1}><span style={{ fontSize: "1.3rem", color: "#ff7d1b" }}>Sneaker Company</span></div>
+              <div className={style.ttl1}><span>{produtosloja[0].titulo}</span></div>
+              <div className={style.txt2}><span>{produtosloja[0].desc}</span></div>
+              <div className={style.containerpreco1}>
+                <div className={style.containerpreco}>
                   <span>$</span>
                   <span>&nbsp;</span>
-                  <span>125,00</span>
-                  <div className={styleApp.desconto}><span>50</span><span>%</span></div>
+                  <span>{(produtosloja[0].preco - (produtosloja[0].preco * produtosloja[0].desconto / 100))}</span>
+                  <div className={style.desconto}><span>{produtosloja[0].desconto}</span><span>%</span></div>
                 </div>
-                <div className={styleApp.precocompletodesconto} ><span>$</span><span>&nbsp;</span><span>250,00</span></div>
+                <div className={style.precocompletodesconto} ><span>$</span><span>&nbsp;</span><span>{produtosloja[0].preco}</span></div>
               </div>
-              <div className={styleApp.containeraddcarrinho}>
-                <div className={styleApp.containerquantidade}>
-                  <button onClick={()=> setQuantidade(Quantidade > 1 ? Quantidade -1 : 1)} style={{ color: "#ff7d1b", border: "none", background: "none", fontSize: "2rem", cursor: "pointer" }}>-</button>
+              <div className={style.containeraddcarrinho}>
+                <div className={style.containerquantidade}>
+                  <button onClick={() => setQuantidade(Quantidade > 1 ? Quantidade - 1 : 1)} style={{ color: "#ff7d1b", border: "none", background: "none", fontSize: "2rem", cursor: "pointer" }}>-</button>
                   <span style={{ color: "black" }}>{Quantidade}</span>
-                  <button onClick={()=> setQuantidade(Quantidade + 1)} style={{ color: "#ff7d1b", border: "none", background: "none", fontSize: "1.3rem", cursor: "pointer" }}>+</button>
+                  <button onClick={() => setQuantidade(Quantidade + 1)} style={{ color: "#ff7d1b", border: "none", background: "none", fontSize: "1.3rem", cursor: "pointer" }}>+</button>
                 </div>
-                <button className={styleApp.btnaddtocart}>Add to cart</button>
+                <button className={style.btnaddtocart} onClick={addcarrinho}>Add to cart</button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <footer className={styleApp.footer}></footer>
+      <footer className={style.footer}></footer>
     </div>
   )
 }
