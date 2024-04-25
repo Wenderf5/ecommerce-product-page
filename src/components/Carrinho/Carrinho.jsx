@@ -8,7 +8,7 @@ import ProdutoCarrinho from '../ProdutoCarrinho/ProdutoCarrinho';
 import { useState, useEffect } from 'react';
 
 //services
-import carrinho from '../../services/carrinho';
+import {carrinho, updateCarrinho} from '../../services/carrinho';
 
 
 function Carrinho(props) {

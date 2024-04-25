@@ -1,4 +1,3 @@
-//styles
 import style from './ProdutoCarrinho.module.css';
 
 //imagens
@@ -6,7 +5,7 @@ import img from  "../../assets/img/image-product-1-thumbnail.jpg";
 import imgicondelete from '../../assets/img/icon-delete.svg';
 
 //services
-import carrinho from '../../services/carrinho';
+import {carrinho, updateCarrinho} from '../../services/carrinho';
 
 function ProdutoCarrinho(props){
     const { index } = props;

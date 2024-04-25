@@ -18,7 +18,7 @@ import { useState } from 'react';
 //services
 import produtosloja from './services/produtosloja';
 import classproduto from './services/addcarrinho';
-import carrinho from './services/carrinho';
+import {carrinho, updateCarrinho } from './services/carrinho';
 
 function App() {
   const [Menu, setMenu] = useState(false);
@@ -31,7 +31,7 @@ function App() {
     if (produtoExistente) {
       produtoExistente.quantidade += Quantidade
     } else {
-      carrinho.push(Newproduct)
+      updateCarrinho(Newproduct)
     }
   }
 
@@ -45,7 +45,7 @@ function App() {
         <button className={style.btnmenunavbar}>About</button>
         <button className={style.btnmenunavbar}>Contact</button>
       </div>
-      <div className={style.navbar}><NavBar setMenu={setMenu} /></div>
+      <div className={style.navbar}><NavBar setMenu={setMenu}/></div>
       <div className={style.container}>
         <div className={style.containercenter}>
           <div className={style.containerprincipal}>
