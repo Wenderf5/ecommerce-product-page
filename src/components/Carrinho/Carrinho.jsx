@@ -12,7 +12,6 @@ import carrinho from '../../services/carrinho';
 
 
 function Carrinho(props) {
-    //stados
     const [emptycart, setemptycart] = useState(true);
 
     useEffect(() => {
@@ -23,21 +22,22 @@ function Carrinho(props) {
         }
     }, [])
 
-
     return (
         <div className={style.containercart}>
             <div className={style.ttlcart}><span>Cart</span></div>
             <hr />
             <div className={style.carrinho}>
                 {emptycart ? (
-                    <div style={{ width: "100%", height: "100px", display: "flex", justifyContent: "center", alignItems: "center" }}><span>You cart is empty.</span></div>
+                    <div style={{ width: "100%", height: "200px", display: "flex", justifyContent: "center", alignItems: "center"}}><span>Your cart is empty.</span></div>
                 ) : (
                     carrinho.map((item, index) => (
-                            <ProdutoCarrinho key={index} item={item}/>
-                ))
+                        <ProdutoCarrinho key={index} item={item} />
+                    ))
                 )}
             </div>
-            <div className={style.containerbtncheckout}><button className={style.btncheckout}>Checkout</button></div>
+            {emptycart === false && (
+                <div className={style.containerbtncheckout}><button className={style.btncheckout}>Checkout</button></div>
+            )}
         </div>
     )
 }

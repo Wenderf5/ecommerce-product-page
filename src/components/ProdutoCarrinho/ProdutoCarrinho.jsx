@@ -9,8 +9,7 @@ import imgicondelete from '../../assets/img/icon-delete.svg';
 import carrinho from '../../services/carrinho';
 
 function ProdutoCarrinho(props){
-
-    const {index} = props;
+    const { index } = props;
 
     function deletaritemcarrinho(){
         carrinho.splice(index, 1)
