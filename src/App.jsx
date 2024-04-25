@@ -23,6 +23,7 @@ import produtosloja from './services/produtosloja';
 import classproduto from './services/addcarrinho';
 import carrinho from './services/carrinho';
 
+
 function App() {
 
   //States
