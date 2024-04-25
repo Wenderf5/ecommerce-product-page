@@ -32,7 +32,7 @@ function NavBar(props) {
                     </div>
                     <div className={style.opperfilnavbar}>
                         <div className={style.divcart}>
-                            <button onClick={() => setcarrinho(!carrinho)} className={style.btnmenunavbarcart}><img style={{ width: "100%" }} src={iconCart} alt="" /></button>
+                            <button onClick={() => setcarrinho(!carrinho)} className={style.btnmenunavbarcart}><img src={iconCart} alt="" /></button>
                             {carrinho && (
                                 <Carrinho/>
                             )}
