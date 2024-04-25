@@ -29,14 +29,14 @@ function App() {
   const [Menu, setMenu] = useState(false);
   const [Quantidade, setQuantidade] = useState(1);
 
-  const produto12 = new classproduto(produtosloja[0].id, produtosloja[0].titulo, produtosloja[0].desc, produtosloja[0].preco, produtosloja[0].desconto, Quantidade);
+  const Newproduct = new classproduto(produtosloja[0].id, produtosloja[0].titulo, produtosloja[0].desc, produtosloja[0].preco, produtosloja[0].desconto, Quantidade);
 
   function addcarrinho() {
     const produtoExistente = carrinho.find(item => item.id === produtosloja[0].id);
     if (produtoExistente) {
       produtoExistente.quantidade += Quantidade
     } else {
-      carrinho.push(produto12)
+      carrinho.push(Newproduct)
     }
   }
 

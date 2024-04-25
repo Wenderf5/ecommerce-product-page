@@ -11,12 +11,12 @@ import logo from '../../assets/img/logo.svg';
 import Carrinho from '../Carrinho/Carrinho';
 
 //Hooks
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
 
 function NavBar(props) {
-
+    const {setMenu} = props;
     const [carrinho, setcarrinho] = useState(false);
-    const { setMenu } = props;
 
     return (
         <div className={style.container}>
