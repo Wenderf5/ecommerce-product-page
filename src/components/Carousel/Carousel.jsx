@@ -9,6 +9,9 @@ import imgproduto2 from '../../assets/img/image-product-2.jpg';
 import imgproduto3 from '../../assets/img/image-product-3.jpg';
 import imgproduto4 from '../../assets/img/image-product-4.jpg';
 
+import iconleft from '../../assets/img/chevron-left-regular-24.png';
+import iconright from '../../assets/img/chevron-right-regular-24.png';
+
 function Carousel() {
     const img = [
         imgproduto1,
@@ -30,11 +33,11 @@ function Carousel() {
     return (
         <div className={style.container}>
             <div className={style.container1}>
-                <button className={style.btn} onClick={prevSlide}><box-icon name='chevron-left' ></box-icon></button>
+                <button className={style.btn} onClick={prevSlide}><img src={iconleft } alt="" /></button>
             </div>
             <img className={style.imgprincipal} src={img[currentIndex]} alt="" />
             <div className={style.container2}>
-                <button className={style.btn} onClick={nextSlide}><box-icon name='chevron-right'></box-icon></button>
+                <button className={style.btn} onClick={nextSlide}><img src={iconright} alt="" /></button>
             </div>
         </div>
     );
